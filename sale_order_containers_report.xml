@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report 
+            string="Tiquete Venta" 
+            id="custom_report_tiquete_venta" 
+            model="sale.order" 
+            report_type="qweb-pdf"
+            name="sale_order_modifications.report_tiquete_venta" 
+            file="Tiquete venta" 
+        />
+
+        <record id="paperformat_lowmargin" model="report.paperformat">
+            <field name="name">Punto de Venta</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="page_height">150</field>
+            <field name="page_width">60</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="sale_order_modifications.custom_report_tiquete_venta" model="ir.actions.report">
+            <field name="paperformat_id" ref="sale_order_modifications.paperformat_lowmargin" />
+        </record>
+
+    </data>
+</openerp>

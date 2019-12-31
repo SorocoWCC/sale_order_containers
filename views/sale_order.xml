@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Vista de formulario - Heredada - Invoice -->
+    <record id="sm_sale_order_containers" model="ir.ui.view">
+      <field name="name">Inherit Form View - Module: Sale Order Containers - Object: Sale Order</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <field colspan="2" name="validity_date" position="before">
+          <field name="tipo" attrs="{'readonly': ['|', ('state','!=', 'draft')]}"/>
+        </field>
+
+
+
+
+
+        <notebook position="inside">
+          <page string="Contenedores" attrs="{'invisible':[('tipo','=','Regular')]}">
+<group>
+          <group string="Informacion General">
+          <field  name="fecha_ingreso" />
+          <field  name="numero_contenedor"/>
+          <field  name="marchamo"/>
+          <field  name="estado"/>
+          </group>
+        
+
+        <group string="Peso Ingreso">
+          <field  name="peso_ingreso_completo"/>
+          <field  name="peso_ingreso_cabezal"/>
+           </group>
+</group >
+          <group string="Peso Salida">
+          <field  name="peso_salida_cabezal"/>
+          
+
+          </group>
+
+          <group  string="Total">
+                      <field  name="peso_salida_completo"/>
+          </group>
+          </page>
+        </notebook>
+
+
+
+
+
+
+
+
+      </field>
+    </record>
+  </data>
+</odoo>
