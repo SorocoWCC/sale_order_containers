@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <data>
-    <!-- Vista de formulario - Heredada - Invoice -->
+    <!-- Vista de formulario - Heredada - Sale Order -->
     <record id="sm_sale_order_containers" model="ir.ui.view">
       <field name="name">Inherit Form View - Module: Sale Order Containers - Object: Sale Order</field>
       <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form"/>
       <field name="arch" type="xml">
         <field colspan="2" name="validity_date" position="before">
-          <field name="tipo" attrs="{'readonly': ['|', ('state','!=', 'draft')]}"/>
+          <field attrs="{'readonly': ['|', ('state','!=', 'draft')]}" name="contenedor"/>
         </field>
-
-
-
-
-
         <notebook position="inside">
-          <page string="Contenedores" attrs="{'invisible':[('tipo','=','Regular')]}">
-<group>
-          <group string="Informacion General">
-          <field  name="fecha_ingreso" />
-          <field  name="numero_contenedor"/>
-          <field  name="marchamo"/>
-          <field  name="estado"/>
-          </group>
-        
-
-        <group string="Peso Ingreso">
-          <field  name="peso_ingreso_completo"/>
-          <field  name="peso_ingreso_cabezal"/>
-           </group>
-</group >
-          <group string="Peso Salida">
-          <field  name="peso_salida_cabezal"/>
-          
-
-          </group>
-
-          <group  string="Total">
-                      <field  name="peso_salida_completo"/>
-          </group>
+          <page attrs="{'invisible':[ ('contenedor', 'not in', ['20', '40'])]}" string="Contenedor">
+            <group>
+              <group string="Informacion General">
+                <field name="fecha_ingreso"/>
+                <field name="numero_contenedor"/>
+                <field name="marchamo"/>
+                <field name="estado"/>
+              </group>
+              <group string="Total">
+                <h3>
+                  <field name="total"/>
+                </h3>
+              </group>
+            </group>
+            <group>
+              <group string="Peso Ingreso">
+                <field attrs="{'invisible':[ ('contenedor', 'not in', ['40'])]}" name="peso_ingreso_cabezal"/>
+                <field name="peso_ingreso_completo"/>
+              </group>
+              <group string="Peso Salida">
+                <field attrs="{'invisible':[ ('contenedor', 'not in', ['40'])]}" name="peso_salida_cabezal"/>
+                <field name="peso_salida_completo"/>
+              </group>
+            </group>
           </page>
         </notebook>
-
-
-
-
-
-
-
-
+      </field>
+    </record>
+    <!-- Vista de formulario - Heredada - Sale Order -->
+    <record id="sm_sale_order_containers_tree" model="ir.ui.view">
+      <field name="name">Inherit Tree View - Module: Sale Order Containers - Object: Sale Order</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+      <field name="arch" type="xml">
+        <field colspan="2" name="partner_id" position="after">
+          <field name="numero_contenedor"/>
+          <field name="estado"/>
+        </field>
       </field>
     </record>
   </data>
