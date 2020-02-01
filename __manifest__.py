@@ -23,9 +23,9 @@
 
     # always loaded
     'data': [
-        #'sale_order_modifications_report.xml',
+        'sale_order_containers_report.xml',
         'views/sale_order.xml',
-        #'views/report_tiquete_venta.xml'
+        'views/report_contenedor.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

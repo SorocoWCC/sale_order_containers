@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="report_container_document">
+            <t t-as="o" t-foreach="docs">
+                <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+
+
+
+ <style type="text/css">.data-table {
+        border-collapse: collapse;
+    }
+    .border-top {
+        border-top: 1px solid #000;
+    }
+    .border-bottom {
+        border-bottom: 1px solid #000;
+    }
+    .border-left {
+        border-left: 1px solid #000;
+    }
+    .border-right {
+        border-right: 1px solid #000;
+    }
+   .all-borders{
+   border-right: 2px solid #000;border-left: 2px solid #000;border-bottom: 2px solid #000;border-top: 2px solid #000;
+    }
+</style>
+    <table class="data-table" style="margin-top:5px;" width="100%">
+      <tbody>
+        <tr/>
+        <tr>
+          <td colspan="4" style="text-align: left;" with="100%">
+            <h2>Contenedor Número: 
+              <span class="oe_editable" t-field="o.numero_contenedor"/></h2>
+            <p/>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" width="33%">
+            <b>Cliente:</b>
+            <span class="oe_editable" style="display:block" t-field="o.partner_id"/>
+            <br/>
+          </td>
+          <td align="center" width="33%">
+            <b>Marchamo:</b>
+            <span class="oe_editable" style="display:block" t-field="o.marchamo"/>
+            <br/>
+          </td>
+          <td align="center" width="33%">
+            <b>Factura:</b>
+            <span class="oe_editable" style="display:block" t-field="o.name"/>
+            <br/>
+          </td>
+        </tr>
+        <tr/>
+      </tbody>
+    </table>
+    <table align="center" class="data-table all-borders" width="80%">
+      <tbody>
+        <tr align="center">
+          <th class="all-borders" colspan="2" style="text-align: center;">Peso de Ingreso</th>
+          <th class="all-borders" colspan="2" style="text-align: center;">Peso de Salida</th>
+        </tr>
+        <tr>
+          <td class="all-borders" style="width:25%">Completo (kg)</td>
+          <td class="all-borders" style="text-align: center;">
+            <span class="oe_editable" t-field="o.peso_ingreso_completo"/>
+          </td>
+          <td class="all-borders" style="width:25%">Completo (kg)</td>
+          <td class="all-borders" style="text-align: center;">
+            <span class="oe_editable" t-field="o.peso_salida_completo"/>
+          </td>
+        </tr>
+        <t t-if="o.contenedor == '40'">
+          <tr>
+            <td class="all-borders" style="width:25%">Cabezal (kg)</td>
+            <td class="all-borders" style="text-align: center;">
+              <span class="oe_editable" t-field="o.peso_ingreso_cabezal"/>
+            </td>
+            <td class="all-borders" style="width:25%">Cabezal (kg)</td>
+            <td class="all-borders" style="text-align: center;">
+              <span class="oe_editable" t-field="o.peso_salida_cabezal"/>
+            </td>
+          </tr>
+      </t>
+      </tbody>
+    </table>
+    <table align="center" width="100%">
+      <tbody>
+        <tr>
+          <td width="50%">
+            <br/>
+          </td>
+          <td style="text-align: center;" width="50%">
+            <h4>
+              <br/>Peso Neto: 
+              <span class="oe_editable" t-field="o.total"/>
+              kg</h4>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" class="border-top" colspan="2" width="100%"/>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>
