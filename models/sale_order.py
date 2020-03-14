@@ -18,7 +18,11 @@ class sale_order(models.Model):
     _name = 'sale.order'
     _inherit = 'sale.order'
 
-    fecha_ingreso = fields.Date(string="Fecha Ingreso", readonly=True, default=fields.Date.today())
+    @api.model
+    def _get_date(self):
+        return str(fields.Date.today())
+
+    fecha_ingreso = fields.Date(string="Fecha Ingreso", readonly=True, default=_get_date )
     fecha_salida = fields.Date(string="Fecha Salida")
     description = fields.Text()
     numero_contenedor = fields.Char(string="Numero Contenedor")
